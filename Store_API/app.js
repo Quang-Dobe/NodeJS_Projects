@@ -2,8 +2,9 @@ require('dotenv').config()
 require('express-async-errors')
 
 const express = require('express')
-const products = require('./Router/Router')
+const router = require('./Router/Router')
 const connectDB = require('./db/ConnectDB')
+const Products = require('./model/Products')
 const notFound = require('./MiddleWareFunc/NotFound')
 const errHandlerFunc = require('./MiddleWareFunc/ErrHandlerFunc')
 
@@ -12,7 +13,7 @@ const port = process.env.PORT || 3000
 
 app.use(express.json())
 
-app.use('/api/v1/products', products)
+app.use('/api/v1/products', router)
 app.get('/', (req, res) => {
     res.status(200).send(`<h1>Welcome to my website</h1>`)
 })
@@ -27,8 +28,10 @@ const start = async () => {
             console.log(`Connecting to port ${port}...`)
         })
     } catch (error) {
-        res.status(500).send(`<h1>Something went wrong</h1>`)
+        console.log(`Something went wrong`)
     }
 }
 
 start()
+
+// 4:21

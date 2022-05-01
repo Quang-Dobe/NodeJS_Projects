@@ -12,9 +12,11 @@ const start = async () => {
         // Create products in "products.json" in database
         await products.create(addedProducts)
         console.log("Success!")
+        process.exit(0)
     } catch(err) {
         console.log("Something went wrong!")
         console.log(err)
+        process.exit(1)
     }
 }
 
