@@ -4,7 +4,6 @@ require('express-async-errors')
 const express = require('express')
 const router = require('./Router/Router')
 const connectDB = require('./db/ConnectDB')
-const Products = require('./model/Products')
 const notFound = require('./MiddleWareFunc/NotFound')
 const errHandlerFunc = require('./MiddleWareFunc/ErrHandlerFunc')
 
@@ -33,5 +32,3 @@ const start = async () => {
 }
 
 start()
-
-// 4:21
