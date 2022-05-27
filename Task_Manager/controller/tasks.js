@@ -19,12 +19,7 @@ const createTask = asyncWrapper (async (req, res, next) => {
     // Depend on what type of properties you wanna to get in the 'Task.js file' in 'Model folder'
     // Database just append new object with the same properties you defined and ignore all of any type of other properties
     let task = await Task.create(req.body)
-    // If the task already exists
-    if (task) {
-        return next(createCustomAPIError(`Task with ID${req.params.id} already exists`, 400))
-    }
-    // Successful post
-    res.status(201).json({ task })
+    res.status(200).json({ task })
 })
 
 const updateTask = asyncWrapper (async (req, res, next) => {
